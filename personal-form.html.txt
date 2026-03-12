@@ -1,0 +1,40 @@
+<!-- 5 Form Cards - 2 Rows Beautiful -->
+<section class="cards-section">
+    <div class="container">
+        <h2 class="section-title">✨ Share Your Peace</h2>
+        <div class="cards-grid">
+            <!-- Row 1 (2 cards) -->
+            <div class="card-row row-1">
+                <div class="card personal-card" onclick="window.location.href='personal-form.html'">
+                    <div class="card-icon">👤</div>
+                    <h3 class="card-title">PERSONAL</h3>
+                    <p class="card-desc">Share your peace word</p>
+                </div>
+                <div class="card couple-card" onclick="alert('Couple form coming soon!')">
+                    <div class="card-icon">💑</div>
+                    <h3 class="card-title">COUPLE</h3>
+                    <p class="card-desc">Share your love</p>
+                </div>
+            </div>
+            
+            <!-- Row 2 (3 cards) -->
+            <div class="card-row row-2">
+                <div class="card family-card" onclick="alert('Family form coming soon!')">
+                    <div class="card-icon">👨‍👩‍👧‍👦</div>
+                    <h3 class="card-title">FAMILY</h3>
+                    <p class="card-desc">Share family peace</p>
+                </div>
+                <div class="card group-card" onclick="alert('Group form coming soon!')">
+                    <div class="card-icon">👥</div>
+                    <h3 class="card-title">GROUP</h3>
+                    <p class="card-desc">Share group peace</p>
+                </div>
+                <div class="card capsule-card" onclick="alert('Time capsule coming soon!')">
+                    <div class="card-icon">⭐</div>
+                    <h3 class="card-title">TIME CAPSULE</h3>
+                    <p class="card-desc">Seal a message for the future</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
