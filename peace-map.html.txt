@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peace Map - Peace for You Network</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Peace Map specific styles */
+        .map-header {
+            text-align: center;
+            padding: 120px 20px 40px;
+            background: linear-gradient(135deg, #0B1A2F, #1a3a5a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(253,184,19,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .map-title {
+            font-size: 3rem;
+            color: #FDB813;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .map-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .map-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(253,184,19,0.2);
+            border-radius: 20px;
+            padding: 25px 40px;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            color: #FDB813;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            color: rgba(255,255,255,0.7);
+            margin-top: 5px;
+        }
+        
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .world-map {
+            width: 100%;
+            height: auto;
+            background: #0F1E33;
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(253,184,19,0.2);
+        }
+        
+        .map-svg {
+            width: 100%;
+            height: auto;
+        }
+        
+        .country-dot {
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            transition: r 0.3s;
+        }
+        
+        .country-dot:hover {
+            r: 12;
+        }
+        
+        @keyframes pulse {
+            0% { r: 5; opacity: 0.8; }
+            50% { r: 8; opacity: 1; }
+            100% { r: 5; opacity: 0.8; }
+        }
+        
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .country-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(253,184,19,0.1);
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .country-item:hover {
+            border-color: #FDB813;
+            background: rgba(253,184,19,0.05);
+            transform: translateY(-2px);
+        }
+        
+        .country-name {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .country-count {
+            background: #FDB813;
+            color: #0B1A2F;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .map-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FDB813;
+            animation: pulse 2s infinite;
+        }
+        
+        .recent-activity {
+            background: #0F1E33;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        
+        .activity-title {
+            text-align: center;
+            color: #FDB813;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .activity-feed {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .activity-item {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid #FDB813;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .activity-time {
+            color: rgba(253,184,19,0.6);
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .activity-text {
+            color: white;
+        }
+        
+        .activity-text strong {
+            color: #FDB813;
+        }
+        
+        @media (max-width: 768px) {
+            .map-title {
+                font-size: 2.2rem;
+            }
+            
+            .stat-card {
+                padding: 15px 25px;
+                min-width: 120px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">🕊️ Peace for You Network</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="sky.html">SKY</a></li>
+                <li><a href="book.html">BOOK</a></li>
+                <li><a href="peace-map.html" class="active">PEACE MAP</a></li>
+                <li><a href="our-story.html">OUR STORY</a></li>
+                <li><a href="#" class="access-btn">🔑 GET ACCESS</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Map Header -->
+    <header class="map-header">
+        <h1 class="map-title">🗺️ Peace Map</h1>
+        <p class="map-subtitle">Watch peace spread across the world.</p>
+    </header>
+
+    <!-- Statistics -->
+    <div class="map-stats">
+        <div class="stat-card">
+            <div class="stat-number">24</div>
+            <div class="stat-label">Countries Reached</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">1,024</div>
+            <div class="stat-label">Peace Voices</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">342</div>
+            <div class="stat-label">Bridges Built</div>
+        </div>
+    </div>
+
+    <!-- Map Legend -->
+    <div class="map-legend">
+        <div class="legend-item">
+            <div class="legend-dot"></div>
+            <span>Active peace voices</span>
+        </div>
+    </div>
+
+    <!-- World Map -->
+    <div class="map-container">
+        <div class="world-map">
+            <svg class="map-svg" viewBox="0 0 1000 500">
+                <!-- Simple world map outline -->
+                <path d="M200,150 L250,120 L300,130 L350,100 L400,120 L450,110 L500,130 L550,120 L600,140 L650,130 L700,150 L750,140 L800,160 L750,180 L700,190 L650,200 L600,190 L550,210 L500,200 L450,220 L400,210 L350,230 L300,220 L250,240 L200,230 L150,250 L100,240 L50,220 L80,200 L120,180 L150,160 L200,150" 
+                      fill="none" stroke="rgba(253,184,19,0.3)" stroke-width="2"/>
+                
+                <path d="M200,250 L250,280 L300,270 L350,290 L400,280 L450,300 L500,280 L550,300 L600,280 L650,300 L700,280 L750,300 L800,280 L820,300 L800,320 L750,310 L700,330 L650,320 L600,340 L550,330 L500,350 L450,340 L400,360 L350,350 L300,370 L250,360 L200,380 L150,370 L100,390 L80,370 L100,350 L120,330 L150,310 L180,290 L200,250" 
+                      fill="none" stroke="rgba(253,184,19,0.3)" stroke-width="2"/>
+                
+                <!-- Country dots -->
+                <circle cx="420" cy="280" r="8" fill="#FDB813" class="country-dot" data-country="Ethiopia"/>
+                <circle cx="470" cy="250" r="6" fill="#FDB813" class="country-dot" data-country="Kenya"/>
+                <circle cx="380" cy="310" r="7" fill="#FDB813" class="country-dot" data-country="Nigeria"/>
+                <circle cx="360" cy="350" r="5" fill="#FDB813" class="country-dot" data-country="South Africa"/>
+                <circle cx="620" cy="200" r="9" fill="#FDB813" class="country-dot" data-country="India"/>
+                <circle cx="150" cy="200" r="8" fill="#FDB813" class="country-dot" data-country="USA"/>
+                <circle cx="300" cy="140" r="7" fill="#FDB813" class="country-dot" data-country="UK"/>
+                <circle cx="200" cy="300" r="5" fill="#FDB813" class="country-dot" data-country="Brazil"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Countries List -->
+    <div class="countries-grid" id="countriesGrid"></div>
+
+    <!-- Recent Activity -->
+    <section class="recent-activity">
+        <h2 class="activity-title">🌉 Recent Peace Bridges</h2>
+        <div class="activity-feed" id="activityFeed"></div>
+    </section>
+
+    <!-- AI Peace Guide -->
+    <div class="ai-guide" id="aiGuide">
+        <div class="guide-icon">🕊️</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">🕊️ Peace for You Network · © 2026</div>
+                <div class="footer-social">
+                    <span>FOLLOW US:</span>
+                    <a href="https://t.me/bookforpeace" target="_blank">📱 Telegram: @bookforpeace</a>
+                    <a href="https://tiktok.com/@peaceforyounetwork" target="_blank">🎵 TikTok: @peaceforyounetwork</a>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="sky.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCountriesList();
+            loadRecentActivity();
+            setupMapInteractions();
+        });
+
+        function loadCountriesList() {
+            const countries = [
+                { name: 'Ethiopia', count: 234 },
+                { name: 'Kenya', count: 156 },
+                { name: 'Nigeria', count: 189 },
+                { name: 'Ghana', count: 98 },
+                { name: 'South Africa', count: 145 },
+                { name: 'India', count: 312 },
+                { name: 'USA', count: 423 },
+                { name: 'UK', count: 201 }
+            ];
+            
+            const grid = document.getElementById('countriesGrid');
+            grid.innerHTML = '';
+            
+            countries.sort((a, b) => b.count - a.count).forEach(c => {
+                const item = document.createElement('div');
+                item.className = 'country-item';
+                item.innerHTML = `<span class="country-name">${c.name}</span><span class="country-count">${c.count}</span>`;
+                item.addEventListener('click', () => alert(`🌍 ${c.name}\n\n${c.count} peace voices`));
+                grid.appendChild(item);
+            });
+        }
+
+        function loadRecentActivity() {
+            const activities = [
+                { time: '2 minutes ago', from: 'Ethiopia', to: 'Kenya', word: 'Love' },
+                { time: '15 minutes ago', from: 'India', to: 'USA', word: 'Hope' },
+                { time: '1 hour ago', from: 'Nigeria', to: 'Ghana', word: 'Unity' }
+            ];
+            
+            const feed = document.getElementById('activityFeed');
+            feed.innerHTML = '';
+            
+            activities.forEach(a => {
+                const item = document.createElement('div');
+                item.className = 'activity-item';
+                item.innerHTML = `
+                    <div class="activity-time">${a.time}</div>
+                    <div class="activity-text"><strong>${a.from}</strong> → <strong>${a.to}</strong><br>"${a.word}"</div>
+                `;
+                feed.appendChild(item);
+            });
+        }
+
+        function setupMapInteractions() {
+            document.querySelectorAll('.country-dot').forEach(dot => {
+                dot.addEventListener('click', function() {
+                    alert(`🗺️ ${this.getAttribute('data-country')}\n\nPeace voices from this country coming soon.`);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

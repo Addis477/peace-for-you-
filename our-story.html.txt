@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Peace for You Network</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Our Story specific styles */
+        .story-header {
+            text-align: center;
+            padding: 120px 20px 60px;
+            background: linear-gradient(135deg, #0B1A2F, #1a3a5a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(253,184,19,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .story-title {
+            font-size: 3rem;
+            color: #FDB813;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .story-subtitle {
+            font-size: 1.3rem;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            font-style: italic;
+        }
+        
+        .founder-section {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .founder-image {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #3498DB, #FDB813);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 150px;
+            box-shadow: 0 20px 40px rgba(253,184,19,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .founder-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(52,152,219,0.3), rgba(253,184,19,0.3));
+        }
+        
+        .founder-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .founder-name {
+            font-size: 2.5rem;
+            color: #FDB813;
+            margin-bottom: 10px;
+        }
+        
+        .founder-title {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .founder-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: white;
+            border-left: 4px solid #FDB813;
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .story-section {
+            margin-bottom: 50px;
+        }
+        
+        .story-section h2 {
+            color: #FDB813;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .story-section p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .vision-box {
+            background: rgba(253,184,19,0.05);
+            border: 1px solid rgba(253,184,19,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .vision-box .quote {
+            font-size: 2rem;
+            color: #FDB813;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .contact-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: #0F1E33;
+            margin-top: 40px;
+        }
+        
+        .contact-title {
+            color: #FDB813;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-method {
+            background: rgba(255,255,255,0.05);
+            padding: 25px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(253,184,19,0.2);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .contact-label {
+            color: #FDB813;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .contact-value {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid rgba(253,184,19,0.2);
+        }
+        
+        .signature-line {
+            font-size: 1.8rem;
+            color: #FDB813;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .signature-name {
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .story-title {
+                font-size: 2.2rem;
+            }
+            
+            .founder-image {
+                width: 200px;
+                height: 200px;
+                font-size: 100px;
+            }
+            
+            .founder-name {
+                font-size: 2rem;
+            }
+            
+            .contact-methods {
+                gap: 20px;
+            }
+            
+            .contact-method {
+                padding: 15px 25px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">🕊️ Peace for You Network</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="sky.html">SKY</a></li>
+                <li><a href="book.html">BOOK</a></li>
+                <li><a href="peace-map.html">PEACE MAP</a></li>
+                <li><a href="our-story.html" class="active">OUR STORY</a></li>
+                <li><a href="#" class="access-btn">🔑 GET ACCESS</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Story Header -->
+    <header class="story-header">
+        <h1 class="story-title">Our Story</h1>
+        <p class="story-subtitle">"We do not wait for peace. We make it."</p>
+    </header>
+
+    <!-- Founder Section -->
+    <div class="founder-section">
+        <div class="founder-image">
+            👤
+        </div>
+        <div class="founder-info">
+            <h2 class="founder-name">Mr. Addis Abebayehu</h2>
+            <div class="founder-title">FOUNDER · PEACE FOR YOU NETWORK</div>
+            <div class="founder-quote">
+                "The sky is sovereign. It belongs to itself. Peace is the same — it cannot be owned, only witnessed and shared."
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Content -->
+    <div class="story-content">
+        <!-- The Beginning -->
+        <section class="story-section">
+            <h2>The Beginning</h2>
+            <p>
+                It started with a simple observation: everyone looks at the same sky. Whether in Addis Ababa or Tokyo, Nairobi or London, the sky connects us all. It changes with time of day, yet remains eternally itself — sovereign, peaceful, belonging to everyone and no one.
+            </p>
+            <p>
+                In 2026, Peace for You Network was born from this truth. Not as another social platform, but as a living space where civil voices from every country could share one word: their peace.
+            </p>
+        </section>
+
+        <!-- Vision Box -->
+        <div class="vision-box">
+            <p style="text-align: center; color: #FDB813; font-weight: bold;">THE VISION</p>
+            <div class="quote">"One civil voice from every country"</div>
+            <p style="text-align: center;">
+                195 countries. 8 billion people. One network of peace.
+            </p>
+        </div>
+
+        <!-- The Philosophy -->
+        <section class="story-section">
+            <h2>The Sky Philosophy</h2>
+            <p>
+                The sky asks nothing of us. It simply exists — beautiful, changing, eternal. It doesn't divide by nation, religion, or politics. It doesn't ask who you worship or who you voted for. It just is.
+            </p>
+            <p>
+                Peace for You Network is built on this same principle. Here, you are not your label. You are a voice. Your word matters. Your peace joins a constellation of lights from around the world.
+            </p>
+        </section>
+
+        <!-- What We Include -->
+        <section class="story-section">
+            <h2>What We Include</h2>
+            <p>
+                The sky makes room for everyone:
+            </p>
+            <ul style="color: rgba(255,255,255,0.9); margin-left: 20px; line-height: 2;">
+                <li>Scientists — Einstein, Curie, Tesla, Galileo, Darwin</li>
+                <li>Writers — Rumi, Achebe, Angelou, Neruda, Tagore</li>
+                <li>Physicians — Hippocrates, Avicenna</li>
+                <li>Philosophers — Socrates, Confucius, Lao Tzu</li>
+                <li>Peace builders — Mandela, Maathai, Harriet Tubman</li>
+                <li>Unnamed voices — Mother in Rift Valley, Farmer in Aksum, Builder in Lalibela, Girl in Harar, Grandmother in Gondar, Child anywhere, Slave</li>
+            </ul>
+        </section>
+
+        <!-- The Meaning -->
+        <section class="story-section">
+            <h2>What "Peace for You" Means</h2>
+            <p>
+                The name is intentional. Not "peace for us" or "peace for them" — but peace for you. Individually. Personally. Because peace begins with one person, one word, one moment of choosing connection over division.
+            </p>
+        </section>
+
+        <!-- Signature -->
+        <div class="signature">
+            <div class="signature-line">"We do not wait for peace. We make it."</div>
+            <div class="signature-name">— Mr. Addis Abebayehu, Founder</div>
+        </div>
+    </div>
+
+    <!-- Contact Section (Simplified) -->
+    <section class="contact-section">
+        <h2 class="contact-title">Connect</h2>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <div class="contact-icon">📱</div>
+                <div class="contact-label">Telegram</div>
+                <div class="contact-value">@bookforpeace</div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">🎵</div>
+                <div class="contact-label">TikTok</div>
+                <div class="contact-value">@peaceforyounetwork</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Peace Guide -->
+    <div class="ai-guide" id="aiGuide">
+        <div class="guide-icon">🕊️</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">🕊️ Peace for You Network · © 2026</div>
+                <div class="footer-social">
+                    <span>FOLLOW US:</span>
+                    <a href="https://t.me/bookforpeace" target="_blank">📱 Telegram: @bookforpeace</a>
+                    <a href="https://tiktok.com/@peaceforyounetwork" target="_blank">🎵 TikTok: @peaceforyounetwork</a>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="sky.js"></script>
+</body>
+</html>

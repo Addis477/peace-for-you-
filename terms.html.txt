@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - Peace for You Network</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .terms-header {
+            text-align: center;
+            padding: 120px 20px 40px;
+            background: linear-gradient(135deg, #0B1A2F, #1a3a5a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terms-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(253,184,19,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .terms-title {
+            font-size: 3rem;
+            color: #FDB813;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .terms-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .terms-section {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(253,184,19,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .terms-section h2 {
+            color: #FDB813;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .terms-section p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .terms-section ul {
+            color: rgba(255,255,255,0.9);
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        
+        .terms-section li {
+            margin-bottom: 10px;
+        }
+        
+        .sky-quote {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #FDB813;
+            font-style: italic;
+            margin: 40px 0;
+            padding: 20px;
+            border-top: 1px solid rgba(253,184,19,0.2);
+            border-bottom: 1px solid rgba(253,184,19,0.2);
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(253,184,19,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .terms-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">🕊️ Peace for You Network</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="sky.html">SKY</a></li>
+                <li><a href="book.html">BOOK</a></li>
+                <li><a href="peace-map.html">PEACE MAP</a></li>
+                <li><a href="our-story.html">OUR STORY</a></li>
+                <li><a href="#" class="access-btn">🔑 GET ACCESS</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Terms Header -->
+    <header class="terms-header">
+        <h1 class="terms-title">⚖️ Terms of Use</h1>
+    </header>
+
+    <!-- Terms Content -->
+    <main class="terms-content">
+        <div class="last-updated">Last Updated: March 12, 2026</div>
+
+        <section class="terms-section">
+            <h2>🕊️ Welcome</h2>
+            <p>By using Peace for You Network, you agree to these simple terms.</p>
+        </section>
+
+        <div class="sky-quote">☁️ "Sky is sovereign. Belongs to itself." ☁️</div>
+
+        <section class="terms-section">
+            <h2>☮️ Peaceful Participation</h2>
+            <ul>
+                <li>Share words that heal, not harm</li>
+                <li>Treat others with dignity and respect</li>
+                <li>Build bridges, not walls</li>
+            </ul>
+            <p><strong>We do not tolerate:</strong> hate speech, violence, harassment, or discrimination.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>📝 Your Content</h2>
+            <p>You retain ownership of your words. Public tokens may be displayed in the Book of Lights. Private tokens are never shared.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>🌍 One Civil Voice</h2>
+            <p>Our vision is one civil voice from every country. All nations, cultures, and backgrounds are welcome.</p>
+        </section>
+
+        <section class="terms-section">
+            <h2>🚫 Prohibited Conduct</h2>
+            <ul>
+                <li>No hateful or violent content</li>
+                <li>No impersonation</li>
+                <li>No commercial advertising</li>
+                <li>No harassment</li>
+            </ul>
+        </section>
+
+        <section class="terms-section">
+            <h2>🛡️ Moderation</h2>
+            <p>We reserve the right to remove any content that violates these terms.</p>
+        </section>
+
+        <div class="sky-quote">☁️ "We do not wait for peace. We make it." ☁️</div>
+    </main>
+
+    <!-- AI Peace Guide -->
+    <div class="ai-guide" id="aiGuide">
+        <div class="guide-icon">🕊️</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">🕊️ Peace for You Network · © 2026</div>
+                <div class="footer-social">
+                    <span>FOLLOW US:</span>
+                    <a href="https://t.me/bookforpeace" target="_blank">📱 Telegram: @bookforpeace</a>
+                    <a href="https://tiktok.com/@peaceforyounetwork" target="_blank">🎵 TikTok: @peaceforyounetwork</a>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html" class="active">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="sky.js"></script>
+</body>
+</html>
