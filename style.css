@@ -1,4 +1,4 @@
-/* ===== PEACE FOR YOU NETWORK - MAIN STYLESHEET ===== */
+ /* ===== PEACE FOR YOU NETWORK - MAIN STYLESHEET ===== */
 /* Colors: Blue #3498DB | Gold #FDB813 */
 
 /* ===== RESET & BASE ===== */
@@ -179,48 +179,68 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ===== WELCOME SECTION (REPLACES CARDS) ===== */
-.welcome-section {
+/* ===== CARDS SECTION - 2 ROWS (Blueprint Section 5) ===== */
+.cards-section {
     padding: 4rem 0;
     background: #0B1A2F;
-    text-align: center;
 }
 
-.welcome-text {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.8;
-}
-
-.peace-words {
+.cards-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card-row {
+    display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin: 3rem 0;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.peace-word {
-    background: rgba(253,184,19,0.1);
-    border: 1px solid #FDB813;
-    border-radius: 50px;
-    padding: 0.8rem 1.5rem;
-    color: #FDB813;
-    font-size: 1.2rem;
+.row-1 {
+    margin-bottom: 1rem;
+}
+
+.row-2 {
+    margin-top: 1rem;
+}
+
+/* Card styles with cursor pointer for clickability */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(253, 184, 19, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 280px;
+    text-align: center;
     transition: all 0.3s;
+    cursor: pointer; /* Makes card clickable */
 }
 
-.peace-word:hover {
-    background: #FDB813;
-    color: #0B1A2F;
-    transform: translateY(-2px);
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #FDB813;
+    box-shadow: 0 10px 30px rgba(253, 184, 19, 0.15);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.note {
-    color: rgba(255,255,255,0.6);
-    font-style: italic;
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #FDB813;
+    margin-bottom: 0.5rem;
+}
+
+.card-desc {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
 }
 
 /* ===== RECENT LIGHTS ===== */
@@ -420,6 +440,11 @@ body {
     
     .nav-container {
         flex-direction: column;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 320px;
     }
     
     .footer-social {
