@@ -6,7 +6,7 @@
     <title>Peace for You Network</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Temporary inline styles */
+        /* Temporary inline styles until style.css is loaded */
         body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #0B1A2F; color: white; }
         .loading { text-align: center; padding: 50px; color: #FDB813; }
     </style>
@@ -53,26 +53,53 @@
             </div>
         </section>
 
-        <!-- Welcome Message (instead of cards) -->
-        <section class="welcome-section">
+        <!-- 5 Form Cards - 2 Rows Beautiful (Blueprint Section 5) -->
+        <section class="cards-section">
             <div class="container">
-                <h2 class="section-title">✨ Welcome to Peace for You Network</h2>
-                <p class="welcome-text">
-                    A space for civil voices from every country. Soon you'll be able to share your peace word, 
-                    seal time capsules, and build bridges across the world.
-                </p>
-                <div class="peace-words">
-                    <span class="peace-word">❤️ Love</span>
-                    <span class="peace-word">🕊️ Peace</span>
-                    <span class="peace-word">✨ Hope</span>
-                    <span class="peace-word">🌟 Unity</span>
-                    <span class="peace-word">💫 Forgiveness</span>
+                <h2 class="section-title">✨ Share Your Peace</h2>
+                <div class="cards-grid">
+                    <!-- Row 1 (2 cards) -->
+                    <div class="card-row row-1">
+                        <!-- PERSONAL CARD - Links to form -->
+                        <div class="card personal-card" onclick="window.location.href='personal-form.html'">
+                            <div class="card-icon">👤</div>
+                            <h3 class="card-title">PERSONAL</h3>
+                            <p class="card-desc">Share your peace word</p>
+                        </div>
+                        <!-- COUPLE CARD - Coming soon -->
+                        <div class="card couple-card" onclick="alert('💑 Couple form coming soon! We are building peace step by step.')">
+                            <div class="card-icon">💑</div>
+                            <h3 class="card-title">COUPLE</h3>
+                            <p class="card-desc">Share your love</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2 (3 cards) -->
+                    <div class="card-row row-2">
+                        <!-- FAMILY CARD - Coming soon -->
+                        <div class="card family-card" onclick="alert('👨‍👩‍👧‍👦 Family form coming soon! We are building peace step by step.')">
+                            <div class="card-icon">👨‍👩‍👧‍👦</div>
+                            <h3 class="card-title">FAMILY</h3>
+                            <p class="card-desc">Share family peace</p>
+                        </div>
+                        <!-- GROUP CARD - Coming soon -->
+                        <div class="card group-card" onclick="alert('👥 Group form coming soon! We are building peace step by step.')">
+                            <div class="card-icon">👥</div>
+                            <h3 class="card-title">GROUP</h3>
+                            <p class="card-desc">Share group peace</p>
+                        </div>
+                        <!-- TIME CAPSULE CARD - Coming soon -->
+                        <div class="card capsule-card" onclick="alert('⭐ Time capsule coming soon! Seal your message for the future.')">
+                            <div class="card-icon">⭐</div>
+                            <h3 class="card-title">TIME CAPSULE</h3>
+                            <p class="card-desc">Seal a message for the future</p>
+                        </div>
+                    </div>
                 </div>
-                <p class="note">While you wait, explore the Sky, Book, and Peace Map.</p>
             </div>
         </section>
 
-        <!-- Recent Lights Preview -->
+        <!-- Recent Lights -->
         <section class="recent-lights">
             <div class="container">
                 <div class="section-header">
