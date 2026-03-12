@@ -1,4 +1,4 @@
- /* ===== PEACE FOR YOU NETWORK - MAIN STYLESHEET ===== */
+/* ===== PEACE FOR YOU NETWORK - MAIN STYLESHEET ===== */
 /* Colors: Blue #3498DB | Gold #FDB813 */
 
 /* ===== RESET & BASE ===== */
@@ -179,7 +179,7 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ===== WELCOME SECTION ===== */
+/* ===== WELCOME SECTION (REPLACES CARDS) ===== */
 .welcome-section {
     padding: 4rem 0;
     background: #0B1A2F;
